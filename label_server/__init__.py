@@ -8,6 +8,10 @@ logger = logging.Logger(__name__)
 
 app.config.from_pyfile('config.py', silent=True)
 
+gunicorn_logger = logging.getLogger('gunicorn.error')
+app.logger.handlers = gunicorn_logger.handlers
+app.logger.setLevel(gunicorn_logger.level)
+
 @app.route("/print")
 def _print():
     label_id = request.args.get("id")
