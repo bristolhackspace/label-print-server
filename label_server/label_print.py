@@ -72,10 +72,7 @@ def send_to_printer(image, cut=True):
             cut=cut
         )
 
-        try:
-            send(instructions=instructions, printer_identifier=PRINTER, backend_identifier=BACKEND, blocking=True)
-        except FileNotFoundError:
-            logger.warn("Tried printing with printer unplugged")
+        send(instructions=instructions, printer_identifier=PRINTER, backend_identifier=BACKEND, blocking=True)
     logger.info("printing done")
 
 def print_label(name, description, expiry, serial=None, cut=True):
