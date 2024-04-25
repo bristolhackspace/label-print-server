@@ -35,7 +35,7 @@ def draw_label(name, description, expiry, serial=None):
     if not isinstance(expiry, str):
         expiry = expiry.strftime("%d %b %Y")
     
-    draw.text((dots[1]/2, 200), "Do not hack until", font=font, fill="black", anchor="ma")
+    draw.text((dots[1]/2, 200), "Protected until", font=font, fill="black", anchor="ma")
     draw.text((dots[1]/2, 280), expiry, font=font_large, fill="black", anchor="ma")
 
     draw.text((10, 450), "Owner:", font=font, fill="black")
